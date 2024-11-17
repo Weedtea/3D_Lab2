@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 8577805561082318257}
   - component: {fileID: 6063789674750105744}
   - component: {fileID: 237910082974667406}
-  - component: {fileID: 389654777304098326}
+  - component: {fileID: -6797231390624760332}
+  - component: {fileID: -4065901327963253353}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -65,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 710430739ba8c884e8a2f2626ce8a1c5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -145,7 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterAgent: {fileID: 6063789674750105744}
---- !u!114 &389654777304098326
+  PlayerTag: Player
+--- !u!114 &-6797231390624760332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,4 +160,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitCount: 0
-  mergedObjectPrefab: {fileID: 1696834749189059949, guid: 4a46e821c58b5cd42b14eaab6d197266, type: 3}
+  mergedCount: 1
+--- !u!54 &-4065901327963253353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2331961724056280881}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

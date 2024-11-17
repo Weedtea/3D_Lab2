@@ -38,12 +38,7 @@ public class GameManager : MonoBehaviour
                     monster.tag = "Yellow";
                     break;
             }
-            
-
-
         }
-        
     }
-
 
 }
