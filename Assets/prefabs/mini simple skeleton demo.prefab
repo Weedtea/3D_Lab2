@@ -404,6 +404,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitCount: 0
   mergedCount: 1
+  _damage: 1
+  _attackRange: 2
+  _attackCooldown: 1
 --- !u!114 &-7125270890801638416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +446,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!136 &1949545931908885370
 CapsuleCollider:

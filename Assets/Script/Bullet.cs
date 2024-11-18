@@ -1,21 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float _lifetime = 3.0f; // 총알 지속 시간
 
-    private Rigidbody Brb;
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Brb = GetComponent<Rigidbody>();
-        Brb.AddForce(transform.forward, ForceMode.Impulse);
+        Destroy(this.gameObject, _lifetime); // 일정 시간이 지나면 제거
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        // 충돌한 경우에도 제거
+        Destroy(this.gameObject);
+        Debug.Log($"Bullet hit: {collision.gameObject.name}");
     }
 }

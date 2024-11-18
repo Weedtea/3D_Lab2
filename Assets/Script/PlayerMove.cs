@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    [SerializeField] private float _playerSpeed = 2.0f;
+    [SerializeField] private float _playerSpeed = 2.0f; // 플레이어 이동 속도
+    [SerializeField] private GameObject _bulletPrefab; // 총알 프리팹
+    [SerializeField] private Transform _bulletSpawnPoint; // 총알 생성 위치
+    [SerializeField] private float _bulletSpeed = 1f; // 총알 속도
 
     private void Update()
     {
+        // 이동 처리
         var h = Input.GetAxisRaw("Horizontal");
         var v = Input.GetAxisRaw("Vertical");
 
@@ -16,11 +20,29 @@ public class PlayerCtrl : MonoBehaviour
         // 플레이어의 이동
         this.transform.Translate(dir * _playerSpeed * Time.deltaTime, Space.World);
 
-        // // 입력값이 있을 때만 회전
-        // if (dir != Vector3.zero)
-        // {
-        //     this.transform.rotation = Quaternion.LookRotation(dir);
-        // }
-        transform.LookAt(dir + transform.position);
+        // 이동 방향으로 회전
+        if (dir != Vector3.zero)
+        {
+            transform.LookAt(dir + transform.position);
+        }
+
+        // 공격 처리
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
+    }
+
+    private void Fire()
+    {
+        if (_bulletPrefab != null && _bulletSpawnPoint != null)
+        {
+            GameObject bullet = Instantiate(_bulletPrefab, _bulletSpawnPoint.position, Quaternion.identity);
+            Rigidbody rb = bullet.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.velocity = transform.forward * _bulletSpeed;
+            }
+        }
     }
 }
