@@ -1,26 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
     public int HitCount = 0; // 몬스터가 받은 히트 수
     public int mergedCount = 1; // 합체 횟수
     private bool isMerging = false; // 합체 플래그
+    private bool isAttacking = false; // 공격 중 상태 플래그
 
     [SerializeField] private int _damage = 1; // 몬스터가 가하는 데미지
     [SerializeField] private float _attackRange = 2.0f; // 공격 범위
     [SerializeField] private float _attackCooldown = 1.0f; // 공격 간격
     private float _lastAttackTime;
 
-    private NavMeshAgent _agent;
     private GameObject _player;
+    private Animator _animator;
 
     void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
         _player = GameObject.FindGameObjectWithTag("Player");
+        _animator = GetComponent<Animator>();
+
+        if (_animator == null)
+        {
+            Debug.LogError("Animator가 할당되지 않았습니다!");
+        }
     }
 
     void Update()
@@ -32,38 +37,62 @@ public class Monster : MonoBehaviour
             return;
         }
 
-        // // 플레이어 추적
-        // if (_player != null)
-        // {
-        //     _agent.SetDestination(_player.transform.position);
-
-        //     // 플레이어와의 거리 계산
-        //     float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-        //     if (distanceToPlayer <= _attackRange)
-        //     {
-        //         AttackPlayer();
-        //     }
-        // }
+        // 플레이어와의 거리 계산
+        if (_player != null)
+        {
+            float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+            if (distanceToPlayer <= _attackRange)
+            {
+                if (Time.time - _lastAttackTime >= _attackCooldown)
+                {
+                    StartAttack();
+                }
+            }
+        }
     }
 
+    private void StartAttack()
+    {
+        if (_animator != null)
+        {
+            _animator.SetTrigger("isAttacking"); // 공격 애니메이션 실행
+        }
+        isAttacking = true; // 공격 상태 시작
+        _lastAttackTime = Time.time;
+    }
+
+    // 공격 애니메이션 이벤트로 호출
     private void AttackPlayer()
     {
-        if (Time.time - _lastAttackTime >= _attackCooldown)
+        if (isAttacking && _player != null)
         {
-            // 플레이어 체력 감소 로직
             PlayerCtrl player = _player.GetComponent<PlayerCtrl>();
             if (player != null)
             {
                 Debug.Log("Player attacked by Monster!");
                 player.PlayerHp -= _damage;
             }
-            _lastAttackTime = Time.time;
         }
+    }
+
+    private void EndAttack()
+    {
+        isAttacking = false; // 공격 상태 종료
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        // 플레이어 공격 처리
+        if (isAttacking && collision.gameObject.CompareTag("Player"))
+        {
+            PlayerCtrl player = collision.gameObject.GetComponent<PlayerCtrl>();
+            if (player != null)
+            {
+                Debug.Log("Player attacked on collision!");
+                player.PlayerHp -= _damage;
+            }
+        }
+
+        // 총알 충돌 처리
         if (collision.gameObject.CompareTag("bullet"))
         {
             HitCount++;

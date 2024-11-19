@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: -8779721201094257847}
   - component: {fileID: 3403976618814134906}
   - component: {fileID: -2538604205200773447}
-  - component: {fileID: -3696081812825471292}
+  - component: {fileID: -7603051184589552538}
   m_Layer: 0
   m_Name: bullet
   m_TagString: bullet
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -120,7 +120,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2865894190855221406}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &-3696081812825471292
+--- !u!54 &-7603051184589552538
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,5 +145,5 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0

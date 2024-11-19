@@ -29,12 +29,11 @@ public class MonsterCtrl : MonoBehaviour
     {
         if (MonsterAgent == null) return;
 
-        float mindistance = float.MaxValue;
+        float minDistance = float.MaxValue;
         GameObject target = null;
 
-        // 태그가 같은 몬스터 찾기
+        // 같은 태그를 가진 몬스터 찾기
         GameObject[] sameColorMonsters = GameObject.FindGameObjectsWithTag(this.tag);
-
         foreach (GameObject monster in sameColorMonsters)
         {
             if (monster == null || monster.GetInstanceID() == gameObject.GetInstanceID())
@@ -44,9 +43,9 @@ public class MonsterCtrl : MonoBehaviour
 
             float distance = Vector3.Distance(transform.position, monster.transform.position);
 
-            if (distance < mindistance)
+            if (distance < minDistance)
             {
-                mindistance = distance;
+                minDistance = distance;
                 target = monster;
             }
         }
@@ -62,17 +61,22 @@ public class MonsterCtrl : MonoBehaviour
 
             float playerDistance = Vector3.Distance(transform.position, player.transform.position);
 
-            if (playerDistance < mindistance)
+            if (playerDistance < minDistance)
             {
-                mindistance = playerDistance;
+                minDistance = playerDistance;
                 target = player;
             }
         }
-        // 목표가 없으면 이동하지 않음
-        if (target == null)
+
+        // 목표 설정 및 이동
+        if (target != null)
+        {
+            MonsterAgent.SetDestination(target.transform.position);
+            _animator.SetBool("isWalking", true); // 걷기 애니메이션 활성화
+        }
+        else
         {
             _animator.SetBool("isWalking", false); // 걷기 애니메이션 중지
-            return;
         }
     }
 }
