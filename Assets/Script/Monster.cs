@@ -32,18 +32,18 @@ public class Monster : MonoBehaviour
             return;
         }
 
-        // 플레이어 추적
-        if (_player != null)
-        {
-            _agent.SetDestination(_player.transform.position);
+        // // 플레이어 추적
+        // if (_player != null)
+        // {
+        //     _agent.SetDestination(_player.transform.position);
 
-            // 플레이어와의 거리 계산
-            float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
-            if (distanceToPlayer <= _attackRange)
-            {
-                AttackPlayer();
-            }
-        }
+        //     // 플레이어와의 거리 계산
+        //     float distanceToPlayer = Vector3.Distance(transform.position, _player.transform.position);
+        //     if (distanceToPlayer <= _attackRange)
+        //     {
+        //         AttackPlayer();
+        //     }
+        // }
     }
 
     private void AttackPlayer()
@@ -55,7 +55,7 @@ public class Monster : MonoBehaviour
             if (player != null)
             {
                 Debug.Log("Player attacked by Monster!");
-                // 이후 체력 감소 로직 추가
+                player.PlayerHp -= _damage;
             }
             _lastAttackTime = Time.time;
         }

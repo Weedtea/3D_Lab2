@@ -12,7 +12,9 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         // 충돌한 경우에도 제거
+        if(collision.collider.CompareTag("Blue")||collision.collider.CompareTag("Green")||collision.collider.CompareTag("Yellow")){
         Destroy(this.gameObject);
         Debug.Log($"Bullet hit: {collision.gameObject.name}");
+    }
     }
 }
