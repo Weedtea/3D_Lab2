@@ -148,7 +148,7 @@ Transform:
   m_GameObject: {fileID: 341738882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.2, y: 0, z: -3.9}
+  m_LocalPosition: {x: 13.3, y: 0, z: 3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 436982326}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 20}
+  m_LocalPosition: {x: 32.7, y: 0, z: 20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241,7 +241,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -691,7 +691,7 @@ Transform:
   m_GameObject: {fileID: 976049307}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 40}
+  m_LocalPosition: {x: 23.6, y: 0, z: 28.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -722,7 +722,7 @@ Transform:
   m_GameObject: {fileID: 1037392092}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 0}
+  m_LocalPosition: {x: 26.6, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -753,7 +753,7 @@ Transform:
   m_GameObject: {fileID: 1046769359}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.7, y: 0, z: 20}
+  m_LocalPosition: {x: 2.77, y: 0, z: 13.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -867,7 +867,7 @@ Transform:
   m_GameObject: {fileID: 1237226816}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 44.7}
+  m_LocalPosition: {x: 6.3, y: 0, z: 36.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 2865894190855221406, guid: bca18a3df0ee9b947a25080965f0ee64, type: 3}
   _bulletSpawnPoint: {fileID: 798282064}
   _bulletSpeed: 10
-  PlayerHp: 5
+  PlayerHp: 2
   muzzleFlash: {fileID: 559025044}
 --- !u!54 &1448174939
 Rigidbody:
@@ -1170,7 +1170,7 @@ Transform:
   m_GameObject: {fileID: 1522510043}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: -17.5}
+  m_LocalPosition: {x: 30.7, y: 0, z: -1.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

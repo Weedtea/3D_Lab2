@@ -14,15 +14,6 @@ public class MonsterCtrl : MonoBehaviour
         MonsterAgent = GetComponent<NavMeshAgent>();
         _animator = GetComponent<Animator>();
 
-        if (MonsterAgent == null)
-        {
-            Debug.LogError("NavMeshAgent가 할당되지 않았습니다!");
-        }
-
-        if (_animator == null)
-        {
-            Debug.LogError("Animator가 할당되지 않았습니다!");
-        }
     }
 
     public void Update()
@@ -59,7 +50,7 @@ public class MonsterCtrl : MonoBehaviour
                 continue;
             }
 
-            float playerDistance = Vector3.Distance(transform.position, player.transform.position);
+            float playerDistance = Vector3.Distance(transform.position, player.transform.position) * 2f;
 
             if (playerDistance < minDistance)
             {

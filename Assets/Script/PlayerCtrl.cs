@@ -38,7 +38,9 @@ public class PlayerCtrl : MonoBehaviour
         // 사망 처리
         if (PlayerHp <= 0)
         {
-            Death();
+            _animator.SetTrigger("Die");
+
+            // Death();
         }
     }
 
@@ -96,11 +98,10 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Death()
     {
-        // 사망 애니메이션 실행
-        _animator.SetTrigger("Die");
+        Destroy(this.gameObject);
 
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; // Unity Editor에서 실행 종료
-#endif
+// #if UNITY_EDITOR
+//         UnityEditor.EditorApplication.isPlaying = false; // Unity Editor에서 실행 종료
+//     #endif
     }
 }
